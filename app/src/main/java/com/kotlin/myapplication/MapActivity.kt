@@ -23,7 +23,7 @@ class MapActivity : AppCompatActivity() {
         mMarker = mBaiduMap!!.addOverlay(MarkerOptions().position(result)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding))) as Marker
         mBaiduMap!!.setMapStatus(MapStatusUpdateFactory.newLatLng(result))
-        val location = TextView(this@MapActivity)
+        val location = TextView(this)
         location.setBackgroundResource(R.mipmap.popup)
         location.setPadding(30, 20, 30, 50)
         location.setTextColor(resources.getColor(R.color.text_color1))
@@ -33,14 +33,7 @@ class MapActivity : AppCompatActivity() {
             mBaiduMap!!.showInfoWindow(mInfoWindow)
             true
         }
-        mBaiduMap!!.setOnMapClickListener(object : BaiduMap.OnMapClickListener {
-            override fun onMapClick(latLng: LatLng) {
-                mBaiduMap!!.hideInfoWindow()
-            }
-            override fun onMapPoiClick(mapPoi: MapPoi): Boolean {
-                return false
-            }
-        })
+
 
     }
 
